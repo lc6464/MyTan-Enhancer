@@ -7,6 +7,7 @@
 // @match        https://mytan.maiseed.com.cn/*
 // @icon         https://mytan.maiseed.com.cn/assets/single-logo.png
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 (function() {
