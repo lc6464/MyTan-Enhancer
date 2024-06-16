@@ -144,10 +144,11 @@
 				e.preventDefault();
 				document
 					.querySelector(
-						`[key="doc-${document.querySelector('[key="doc-asdie-show"]') ===
+						`[key="doc-${
+							document.querySelector('[key="doc-asdie-show"]') ===
 							null
-							? "aside-hide"
-							: "asdie-show"
+								? "aside-hide"
+								: "asdie-show"
 						}"]`,
 					)
 					.click(); // 开发炭炭你这拼写合理吗😅
