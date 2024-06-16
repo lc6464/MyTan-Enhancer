@@ -46,8 +46,8 @@
 			e.altKey && e.ctrlKey && e.metaKey && e.shiftKey,
 	};
 
+	// skipcq: JS-R1005 够清晰就行
 	document.body.addEventListener("keydown", (e) => {
-		// skipcq: JS-R1005 够清晰就行
 		if (e.key === "F1" && withKeys.none(e)) {
 			// F1：打开 MyTan 快速上手
 			e.preventDefault();
@@ -144,11 +144,10 @@
 				e.preventDefault();
 				document
 					.querySelector(
-						`[key="doc-${
-							document.querySelector('[key="doc-asdie-show"]') ===
+						`[key="doc-${document.querySelector('[key="doc-asdie-show"]') ===
 							null
-								? "aside-hide"
-								: "asdie-show"
+							? "aside-hide"
+							: "asdie-show"
 						}"]`,
 					)
 					.click(); // 开发炭炭你这拼写合理吗😅
