@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MyTan 补全计划：快捷键
 // @namespace    https://lcwebsite.cn/
-// @version      0.1.0
+// @version      0.1.1
 // @description  通过新增一些快捷键让 MyTan Web 端更好用！
 // @author       LC
 // @match        https://mytan.maiseed.com.cn/*
@@ -34,6 +34,13 @@
 				// 在重命名对话时按 Enter：保存新的对话名称
 				e.preventDefault();
 				document.querySelector('[nztype="primary"]').click();
+				return;
+			}
+
+			if (e.key === "F1") {
+				// F1：打开 MyTan 快速上手
+				e.preventDefault();
+				open('https://zxqac4nje77.feishu.cn/wiki/QmCEwBxnLidQLBkbSgccoYLYnkg', '_blank', 'noopener,noreferrer');
 				return;
 			}
 		});
