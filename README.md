@@ -11,7 +11,7 @@ MyTan 补全计划是一个基于篡改猴（Tampermonkey）的脚本项目，�
 
 ## 安装指南
 
-1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 浏览器扩展。
+1. 安装 <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> 浏览器扩展。
 2. [点击此处](https://raw.githubusercontent.com/lc6464/MyTan-Enhancer/main/shortcut.user.js) 安装 MyTan 补全计划脚本。
 3. 安装完成后，刷新 MyTan 网页，脚本将自动生效。
 
