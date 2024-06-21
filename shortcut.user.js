@@ -205,7 +205,8 @@
 		) {
 			// Alt + G：如果可以重新生成回答，重新生成最新的一个回答
 			e.preventDefault();
-			document.querySelector('svg-icon[key="regenerate"]')?.click();
+			document.querySelector('[key="regenerate"]')?.click();
+
 			return;
 		}
 
