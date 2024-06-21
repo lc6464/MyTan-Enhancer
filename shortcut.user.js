@@ -20,6 +20,7 @@
 		chatAndDocumentConversation: /^\/(?:chat|document)\/[a-z0-9]{24}$/,
 		chatAndDocument: /^\/(?:chat|document)/,
 		toolsConversation: /^\/tools\/[a-z0-9]{24}$/,
+		chat: /^\/chat\/[a-z0-9]{24}$/,
 	};
 
 	const withKeys = {
@@ -192,6 +193,17 @@
 			// Ctrl + O：打开文档，适用于文档的新建页面
 			e.preventDefault();
 			document.querySelector("[nz-upload-btn]")?.click();
+			return;
+		}
+
+		if (
+			key === "g" &&
+			withKeys.altOnly(e) &&
+			regexs.chat.test(location.pathname)
+		) {
+			// Alt + G：如果可以重新生成回答，重新生成最新的一个回答
+			e.preventDefault();
+			document.querySelector('svg-icon[key="regenerate"]')?.click();
 			return;
 		}
 
