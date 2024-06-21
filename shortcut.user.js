@@ -48,7 +48,9 @@
 
 	// skipcq: JS-R1005 够清晰就行
 	document.body.addEventListener("keydown", (e) => {
-		if (e.key === "F1" && withKeys.none(e)) {
+		const key = e.key.toLowerCase(); // 将键值转换为小写
+
+		if (key === "f1" && withKeys.none(e)) {
 			// F1：打开 MyTan 快速上手
 			e.preventDefault();
 			open(
@@ -60,7 +62,7 @@
 		}
 
 		if (
-			e.key === "F2" &&
+			key === "f2" &&
 			withKeys.none(e) &&
 			regexs.chatAndDocumentConversation.test(location.pathname)
 		) {
@@ -70,7 +72,7 @@
 			return;
 		}
 
-		if (e.key === "a" && withKeys.altOnly(e)) {
+		if (key === "a" && withKeys.altOnly(e)) {
 			// Alt + A：切换到绘图模式
 			e.preventDefault();
 			document
@@ -81,7 +83,7 @@
 			return;
 		}
 
-		if (e.key === "c" && withKeys.altOnly(e)) {
+		if (key === "c" && withKeys.altOnly(e)) {
 			// Alt + C：切换到聊天模式
 			e.preventDefault();
 			document
@@ -92,7 +94,7 @@
 			return;
 		}
 
-		if (e.key === "d" && withKeys.altOnly(e)) {
+		if (key === "d" && withKeys.altOnly(e)) {
 			// Alt + D：切换到文档模式
 			e.preventDefault();
 			document
@@ -103,7 +105,7 @@
 			return;
 		}
 
-		if (e.key === "t" && withKeys.altOnly(e)) {
+		if (key === "t" && withKeys.altOnly(e)) {
 			// Alt + T：切换到工具模式
 			e.preventDefault();
 			document
@@ -115,7 +117,7 @@
 		}
 
 		if (
-			e.key === "n" &&
+			key === "n" &&
 			withKeys.altOnly(e) &&
 			regexs.chatAndDocumentConversation.test(location.pathname)
 		) {
@@ -126,7 +128,7 @@
 			return;
 		}
 
-		if (e.key === "i" && withKeys.altOnly(e)) {
+		if (key === "i" && withKeys.altOnly(e)) {
 			// Alt + I：打开用户设置
 			e.preventDefault();
 			document.querySelector('[nztooltiptitle="更多"]').click();
@@ -138,7 +140,7 @@
 			return;
 		}
 
-		if (e.key === "1" && withKeys.altOnly(e)) {
+		if (key === "1" && withKeys.altOnly(e)) {
 			if (regexs.chatAndDocument.test(location.pathname)) {
 				// Alt + 1：打开或收起侧边栏，适用于聊天和文档的所有页面 #4
 				e.preventDefault();
@@ -175,7 +177,7 @@
 			}
 		}
 
-		if (e.key === "i" && withKeys.ctrlOnly(e)) {
+		if (key === "i" && withKeys.ctrlOnly(e)) {
 			// Ctrl + I：聚焦到输入框
 			e.preventDefault();
 			document.querySelector("textarea")?.focus();
@@ -183,7 +185,7 @@
 		}
 
 		if (
-			e.key === "o" &&
+			key === "o" &&
 			withKeys.ctrlOnly(e) &&
 			location.pathname === "/document"
 		) {
@@ -194,7 +196,7 @@
 		}
 
 		if (
-			e.key === "Enter" &&
+			key === "enter" &&
 			withKeys.none(e) &&
 			e.target !== null &&
 			e.target === document.querySelector(".title-input")
