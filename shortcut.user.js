@@ -200,7 +200,8 @@
 		if (
 			key === "g" &&
 			withKeys.altOnly(e) &&
-			regexs.chat.test(location.pathname)
+			regexs.chatConversation.test(location.pathname)
+
 		) {
 			// Alt + G：如果可以重新生成回答，重新生成最新的一个回答
 			e.preventDefault();
