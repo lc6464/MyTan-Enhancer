@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MyTan 补全计划：快捷键
 // @namespace    https://lcwebsite.cn/
-// @version      0.2.0
+// @version      0.3.0
 // @description  通过新增一些快捷键让 MyTan Web 端更好用！
 // @author       LC
 // @match        https://mytan.maiseed.com.cn/chat*
