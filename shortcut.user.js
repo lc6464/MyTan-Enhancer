@@ -20,7 +20,8 @@
 		chatAndDocumentConversation: /^\/(?:chat|document)\/[a-z0-9]{24}$/,
 		chatAndDocument: /^\/(?:chat|document)/,
 		toolsConversation: /^\/tools\/[a-z0-9]{24}$/,
-		chat: /^\/chat\/[a-z0-9]{24}$/,
+		chatConversation: /^\/chat\/[a-z0-9]{24}$/,
+
 	};
 
 	const withKeys = {
