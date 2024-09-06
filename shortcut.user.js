@@ -71,7 +71,7 @@
 			e.preventDefault();
 			
 			// 获取当前活动对话的容器元素
-			const activeChat = document.querySelector('.active-conversation-item'); // 使用表示当前活动对话的 class
+			const activeChat = document.querySelector('.active-conversation-item');
 			if (activeChat) {
 				// 在当前活动对话容器内找到并点击“更多”按钮
 				const moreButton = activeChat.querySelector('svg-icon[key="btn-more"]');
