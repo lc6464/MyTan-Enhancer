@@ -91,6 +91,17 @@
 			return;
 		}
 
+		if (key === "a" && withKeys.altOnly(e)) {
+			// Alt + A：切换到绘图模式
+			e.preventDefault();
+			document
+				.querySelectorAll(
+					'div[nztooltipplacement="right"][nz-tooltip]',
+				)[2]
+				.click();
+			return;
+		}
+
 		if (key === "c" && withKeys.altOnly(e)) {
 			// Alt + C：切换到聊天模式
 			e.preventDefault();
