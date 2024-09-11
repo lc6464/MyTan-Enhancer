@@ -69,7 +69,7 @@
 		) {
 			// F2：重命名对话，适用于聊天和文档的对话页面
 			e.preventDefault();
-			
+
 			// 获取当前活动对话的容器元素
 			const activeChat = document.querySelector('.active-conversation-item');
 			if (activeChat) {
@@ -77,19 +77,17 @@
 				const moreButton = activeChat.querySelector('svg-icon[key="btn-more"]');
 				if (moreButton) {
 					moreButton.click();
-					
-					// 延时等待菜单加载出来
-					setTimeout(() => {
-						// 在当前活动对话容器内找到并点击“编辑对话名称”按钮
-						const editButton = document.querySelector('svg-icon[key="edit"]');
-						if (editButton) {
-							editButton.click();
-						}
-					}, 100); // 根据需要调整延迟时间
+
+					// 在当前活动对话容器内找到并点击“编辑对话名称”按钮
+					const editButton = document.querySelector('svg-icon[key="edit"]');
+					if (editButton) {
+						editButton.click();
+					}
 				}
 			}
 			return;
 		}
+
 
 		if (key === "a" && withKeys.altOnly(e)) {
 			// Alt + A：切换到绘图模式
