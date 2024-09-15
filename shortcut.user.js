@@ -71,16 +71,19 @@
 			e.preventDefault();
 
 			// 获取当前活动对话的容器元素
-			const activeConversation = document.querySelector('.active-conversation-item');
+			const activeConversation = document.querySelector(
+				".active-conversation-item",
+			);
 			if (activeConversation !== null) {
 				// 在当前活动对话容器内点击“更多”按钮
-				activeConversation.querySelector('svg-icon[key="btn-more"]')?.click();
+				activeConversation
+					.querySelector('svg-icon[key="btn-more"]')
+					?.click();
 				// 在当前活动对话容器内点击“编辑对话名称”按钮
 				document.querySelector('svg-icon[key="edit"]')?.click();
 			}
 			return;
 		}
-
 
 		if (key === "a" && withKeys.altOnly(e)) {
 			// Alt + A：切换到绘图模式
