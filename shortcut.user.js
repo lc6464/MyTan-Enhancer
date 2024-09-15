@@ -1,13 +1,10 @@
 // ==UserScript==
 // @name         MyTan 补全计划：快捷键
 // @namespace    https://lcwebsite.cn/
-// @version      0.3.0
+// @version      0.4.0
 // @description  通过新增一些快捷键让 MyTan Web 端更好用！
 // @author       LC
-// @match        https://mytan.maiseed.com.cn/chat*
-// @match        https://mytan.maiseed.com.cn/tools*
-// @match        https://mytan.maiseed.com.cn/draw*
-// @match        https://mytan.maiseed.com.cn/document*
+// @match        https://mytan.maiseed.com.cn/*
 // @icon         https://mytan.maiseed.com.cn/assets/single-logo.png
 // @grant        none
 // @license      MIT
