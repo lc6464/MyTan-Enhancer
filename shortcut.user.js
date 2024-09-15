@@ -69,9 +69,18 @@
 		) {
 			// F2：重命名对话，适用于聊天和文档的对话页面
 			e.preventDefault();
-			document.querySelector('svg-icon[key="edit"]')?.click();
+
+			// 获取当前活动对话的容器元素
+			const activeConversation = document.querySelector('.active-conversation-item');
+			if (activeConversation !== null) {
+				// 在当前活动对话容器内点击“更多”按钮
+				activeConversation.querySelector('svg-icon[key="btn-more"]')?.click();
+				// 在当前活动对话容器内点击“编辑对话名称”按钮
+				document.querySelector('svg-icon[key="edit"]')?.click();
+			}
 			return;
 		}
+
 
 		if (key === "a" && withKeys.altOnly(e)) {
 			// Alt + A：切换到绘图模式
@@ -204,18 +213,6 @@
 			// Alt + G：如果可以重新生成回答，重新生成最新的一个回答
 			e.preventDefault();
 			document.querySelector('[key="regenerate"]')?.click();
-			return;
-		}
-
-		if (
-			key === "enter" &&
-			withKeys.none(e) &&
-			e.target !== null &&
-			e.target === document.querySelector(".title-input")
-		) {
-			// 在重命名对话时按 Enter：保存新的对话名称
-			e.preventDefault();
-			document.querySelector('[nztype="primary"]')?.click();
 		}
 	});
 })();
