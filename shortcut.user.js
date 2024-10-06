@@ -240,11 +240,11 @@
 
 		// 从当前页面 URL 中提取对话 ID
 		const currentUrl = window.location.href;
-		const conversationIdMatch = currentUrl.match(/\/chat\/([^\/?]+)/);
+		const conversationIdMatch = currentUrl.match(/\/chat\/([^/?]+)/);
 
 		// 确保获取到了对话 ID
-		if (conversationIdMatch && conversationIdMatch[1]) {
-			const conversationId = conversationIdMatch[1];
+		const conversationId = conversationIdMatch?.[1];
+		if (conversationId) {
 			// 构建目标请求的 URL
 			const targetUrl = `https://mytan.maiseed.com.cn/api/v1/messages?conversation_id=${conversationId}`;
 
@@ -259,7 +259,7 @@
 				.then(response => {
 					// 检查响应是否成功
 					if (!response.ok) {
-						throw new Error('Network response was not ok ' + response.statusText);
+						throw new Error(`Network response was not ok ${response.statusText}`);
 					}
 					// 将响应解析为 JSON 格式
 					return response.json();
