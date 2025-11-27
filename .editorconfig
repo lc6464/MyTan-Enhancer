@@ -29,10 +29,15 @@ indent_size = 2
 tab_width = 2
 
 # 前端代码
-[*.{js,ts,tsx,css,svg,html,txt,md}]
+[*.{js,ts,tsx,css,svg,html,txt}]
 indent_size = 4
 tab_width = 4
 
+# Markdown 文件
+[*.md]
+indent_style = space
+indent_size = 2
+tab_width = 2
 
 # .NET 文件
 [*.{cs,vb,csx,vbx,xaml,cshtml,vshtml,resx,vsixmanifest}]
