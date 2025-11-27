@@ -49,7 +49,8 @@
 		const key = e.key.toLowerCase(); // 将键值转换为小写
 
 		if (
-			((key === "f2" && withKeys.none(e)) || (key === "l" && withKeys.altOnly(e))) &&
+			((key === "f2" && withKeys.none(e)) ||
+				(key === "l" && withKeys.altOnly(e))) &&
 			regexs.chatAndDocumentConversation.test(location.pathname)
 		) {
 			// F2：重命名对话，适用于聊天和文档的对话页面
