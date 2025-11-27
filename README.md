@@ -12,22 +12,20 @@ MyTan 补全计划是一个基于篡改猴（Tampermonkey）的脚本项目，�
 ## 安装指南
 
 1. 安装 <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> 浏览器扩展。
-2. [点击此处](https://raw.githubusercontent.com/lc6464/MyTan-Enhancer/main/shortcut.user.js) 安装 MyTan 补全计划脚本。
-3. 安装完成后，刷新 MyTan 网页，脚本将自动生效。
+2. [点击此处](https://raw.githubusercontent.com/lc6464/MyTan-Enhancer/main/shortcut.user.js)通过 GitHub UserContent 安装 MyTan 补全计划脚本。
+3. 如果不便通过 GitHub UserContent 访问，也可以[点击此处](https://greasyfork.org/zh-CN/scripts/498009)通过 Greasy Fork 安装脚本。
+4. 安装完成后，刷新 MyTan 网页，脚本将自动生效，当脚本有更新时，Tampermonkey 会自动提示你进行更新。
 
 ## 新增快捷键列表
-
--   `F1`
-
-    -   功能：打开 MyTan 快速上手页面
-    -   适用范围：四个主要功能页面
 
 -   `F2`
 
     -   功能：重命名对话
     -   适用范围：聊天和文档的对话页面
     -   感谢 @KNWking 在 #17 做出的修复
+    -   已于 2025-11-27 再次修复
 
+<!--
 -   `Alt + A`
 
     -   功能：切换到绘图模式
@@ -42,26 +40,32 @@ MyTan 补全计划是一个基于篡改猴（Tampermonkey）的脚本项目，�
 
     -   功能：切换到文档模式
     -   适用范围：四个主要功能页面
+-->
 
 -   `Alt + G`
 
     -   功能：重新生成最新的一个回答
     -   适用范围：聊天的对话页面
 
+<!--
 -   `Alt + I`
 
     -   功能：打开用户设置
     -   适用范围：四个主要功能页面
+-->
 
--   `Alt + N`
+-   `Alt + L`
 
-    -   功能：新建对话
+    -   功能：设置对话标签
     -   适用范围：聊天和文档的对话页面
+    -   添加日期：2025-11-27
 
+<!--
 -   `Alt + T`
 
     -   功能：切换到工具模式
     -   适用范围：四个主要功能页面
+-->
 
 -   `Alt + 1`
 
@@ -71,6 +75,7 @@ MyTan 补全计划是一个基于篡改猴（Tampermonkey）的脚本项目，�
     -   适用范围：工具的对话页面
     -   功能：切换生成与历史页面
     -   适用范围：绘图页面
+    -   已于 2025-11-27 修复
 
 -   `Ctrl + I`
 

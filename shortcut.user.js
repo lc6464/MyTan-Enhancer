@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MyTan 补全计划：快捷键
 // @namespace    https://lcwebsite.cn/
-// @version      0.4.0
+// @version      0.5.0
 // @description  通过新增一些快捷键让 MyTan Web 端更好用！
 // @author       LC
 // @match        https://mytan.maiseed.com.cn/*
@@ -48,23 +48,12 @@
 	document.body.addEventListener("keydown", (e) => {
 		const key = e.key.toLowerCase(); // 将键值转换为小写
 
-		if (key === "f1" && withKeys.none(e)) {
-			// F1：打开 MyTan 快速上手
-			e.preventDefault();
-			open(
-				"https://zxqac4nje77.feishu.cn/wiki/QmCEwBxnLidQLBkbSgccoYLYnkg",
-				"_blank",
-				"noopener,noreferrer",
-			);
-			return;
-		}
-
 		if (
-			key === "f2" &&
-			withKeys.none(e) &&
+			((key === "f2" && withKeys.none(e)) || (key === "l" && withKeys.altOnly(e))) &&
 			regexs.chatAndDocumentConversation.test(location.pathname)
 		) {
 			// F2：重命名对话，适用于聊天和文档的对话页面
+			// Alt + L：设置标签，适用于聊天和文档的对话页面
 			e.preventDefault();
 
 			// 获取当前活动对话的容器元素
@@ -72,15 +61,16 @@
 				".active-conversation-item",
 			);
 			if (activeConversation !== null) {
-				// 在当前活动对话容器内点击“更多”按钮
-				activeConversation
-					.querySelector('svg-icon[key="btn-more"]')
-					?.click();
-				// 在当前活动对话容器内点击“编辑对话名称”按钮
-				document.querySelector('svg-icon[key="edit"]')?.click();
+				activeConversation.querySelector('[key="more"]')?.click();
+
+				const keyToClick = key === "f2" ? "edit" : "label";
+				document.querySelector(`[key="${keyToClick}"]`)?.click();
 			}
 			return;
 		}
+
+		/*
+		这一部分功能暂时禁用，等待后续有精力再维护
 
 		if (key === "a" && withKeys.altOnly(e)) {
 			// Alt + A：切换到绘图模式
@@ -126,51 +116,28 @@
 			return;
 		}
 
-		if (
-			key === "n" &&
-			withKeys.altOnly(e) &&
-			regexs.chatAndDocumentConversation.test(location.pathname)
-		) {
-			// Alt + N：新建对话，适用于聊天和文档的对话页面
-			e.preventDefault();
-			document.querySelector(".create")?.click();
-			document.querySelector(".upload-btn")?.click();
-			return;
-		}
-
 		if (key === "i" && withKeys.altOnly(e)) {
 			// Alt + I：打开用户设置
 			e.preventDefault();
-			document.querySelector('[nztooltiptitle="更多"]').click();
-			document
-				.querySelectorAll(
-					".setting-item.flex.align-item-center.justify-content-space-between",
-				)[2]
-				.click();
+			document.querySelector(".avatar").click();
+			document.querySelector(".setting-item").click();
 			return;
 		}
+
+		*/
 
 		if (key === "1" && withKeys.altOnly(e)) {
 			if (regexs.chatAndDocument.test(location.pathname)) {
 				// Alt + 1：打开或收起侧边栏，适用于聊天和文档的所有页面 #4
 				e.preventDefault();
-				document
-					.querySelector(
-						`[key="doc-${
-							document.querySelector('[key="doc-asdie-show"]') ===
-							null
-								? "aside-hide"
-								: "asdie-show"
-						}"]`,
-					)
-					.click(); // 开发炭炭你这拼写合理吗😅
+				document.querySelector('[key="collapsed"]').click();
 				return;
 			}
 
 			if (regexs.toolsConversation.test(location.pathname)) {
 				// Alt + 1：退出到工具主页，适用于工具的对话页面
 				e.preventDefault();
-				document.querySelectorAll("img.pointer")[1].click();
+				document.querySelector('[key="arrow"]').click();
 				return;
 			}
 
