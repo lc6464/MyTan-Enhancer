@@ -135,6 +135,7 @@
 			// Alt + G：如果可以重新生成回答，重新生成最新的一个回答
 			e.preventDefault();
 			document.querySelector('[key="regenerate"]')?.click();
+			return;
 		}
 
 		if (key === "1" && withKeys.altOnly(e)) {
@@ -212,7 +213,6 @@
 			// Ctrl + O：打开文档，适用于文档的新建页面
 			e.preventDefault();
 			document.querySelector("[nz-upload-btn]")?.click();
-			return;
 		}
 
 	});
