@@ -106,6 +106,14 @@
 			return;
 		}
 
+		if (key === "i" && withKeys.altOnly(e)) {
+			// Alt + I：打开用户设置
+			e.preventDefault();
+			document.querySelector(".avatar").click();
+			document.querySelector(".setting-item").click();
+			return;
+		}
+
 		if (key === "t" && withKeys.altOnly(e)) {
 			// Alt + T：切换到工具模式
 			e.preventDefault();
@@ -117,15 +125,17 @@
 			return;
 		}
 
-		if (key === "i" && withKeys.altOnly(e)) {
-			// Alt + I：打开用户设置
-			e.preventDefault();
-			document.querySelector(".avatar").click();
-			document.querySelector(".setting-item").click();
-			return;
-		}
-
 		*/
+
+		if (
+			key === "g" &&
+			withKeys.altOnly(e) &&
+			regexs.chatConversation.test(location.pathname)
+		) {
+			// Alt + G：如果可以重新生成回答，重新生成最新的一个回答
+			e.preventDefault();
+			document.querySelector('[key="regenerate"]')?.click();
+		}
 
 		if (key === "1" && withKeys.altOnly(e)) {
 			if (regexs.chatAndDocument.test(location.pathname)) {
@@ -205,14 +215,5 @@
 			return;
 		}
 
-		if (
-			key === "g" &&
-			withKeys.altOnly(e) &&
-			regexs.chatConversation.test(location.pathname)
-		) {
-			// Alt + G：如果可以重新生成回答，重新生成最新的一个回答
-			e.preventDefault();
-			document.querySelector('[key="regenerate"]')?.click();
-		}
 	});
 })();
