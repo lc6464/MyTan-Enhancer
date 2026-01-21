@@ -188,7 +188,9 @@
 
 			if (inputElements.length > 0) {
 				// 找到当前已经获得焦点的元素在数组中的索引。
-				const currentIndex = inputElements.indexOf(document.activeElement);
+				const currentIndex = inputElements.indexOf(
+					document.activeElement,
+				);
 
 				// 计算下一个需要聚焦的索引，如果不在列表中或在最后一个，则跳回第一个。
 				const nextIndex = (currentIndex + 1) % inputElements.length;
