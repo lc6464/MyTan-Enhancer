@@ -171,8 +171,11 @@
 			e.preventDefault();
 
 			// 获取所有可以获取焦点的输入控件。
-			const selectors = 'textarea, input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="file"])';
-			const allInputs = Array.from(document.querySelectorAll(selectors)).filter((el) => {
+			const selectors =
+				'textarea, input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="file"])';
+			const allInputs = Array.from(
+				document.querySelectorAll(selectors),
+			).filter((el) => {
 				// 过滤掉被隐藏或禁用的元素，确保它们是可见的。
 				const style = window.getComputedStyle(el);
 				return (
@@ -196,7 +199,8 @@
 				// 如果是 textarea 或文本 input，将光标移至文字末尾。
 				if (
 					targetInput.tagName === "TEXTAREA" ||
-					(targetInput.tagName === "INPUT" && targetInput.type === "text")
+					(targetInput.tagName === "INPUT" &&
+						targetInput.type === "text")
 				) {
 					const valLen = targetInput.value.length;
 					targetInput.setSelectionRange(valLen, valLen);
@@ -214,6 +218,5 @@
 			e.preventDefault();
 			document.querySelector("[nz-upload-btn]")?.click();
 		}
-
 	});
 })();
