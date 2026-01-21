@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MyTan 补全计划：快捷键
 // @namespace    https://lcwebsite.cn/
-// @version      0.5.0
+// @version      0.6.0
 // @description  通过新增一些快捷键让 MyTan Web 端更好用！
 // @author       LC
 // @match        https://mytan.maiseed.com.cn/*
@@ -171,30 +171,32 @@
 			e.preventDefault();
 
 			// 获取所有可以获取焦点的输入控件。
-			const selectors =
+			const selector =
 				'textarea, input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="file"])';
-			const allInputs = Array.from(
-				document.querySelectorAll(selectors),
-			).filter((el) => {
+			const inputElements = Array.from(
+				document.querySelectorAll(selector),
+			).filter((element) => {
 				// 过滤掉被隐藏或禁用的元素，确保它们是可见的。
-				const style = window.getComputedStyle(el);
+				const style = window.getComputedStyle(element);
 				return (
 					style.display !== "none" &&
 					style.visibility !== "hidden" &&
-					!el.disabled &&
-					el.offsetParent !== null
+					!element.disabled &&
+					element.offsetParent !== null
 				);
 			});
 
-			if (allInputs.length > 0) {
+			if (inputElements.length > 0) {
 				// 找到当前已经获得焦点的元素在数组中的索引。
-				const currentIndex = allInputs.indexOf(document.activeElement);
+				const currentIndex = inputElements.indexOf(document.activeElement);
 
 				// 计算下一个需要聚焦的索引，如果不在列表中或在最后一个，则跳回第一个。
-				const nextIndex = (currentIndex + 1) % allInputs.length;
+				const nextIndex = (currentIndex + 1) % inputElements.length;
 
-				const targetInput = allInputs[nextIndex];
+				const targetInput = inputElements[nextIndex];
 				targetInput.focus();
+
+				/*
 
 				// 如果是 textarea 或文本 input，将光标移至文字末尾。
 				if (
@@ -202,9 +204,11 @@
 					(targetInput.tagName === "INPUT" &&
 						targetInput.type === "text")
 				) {
-					const valLen = targetInput.value.length;
-					targetInput.setSelectionRange(valLen, valLen);
+					const valueLength = targetInput.value.length;
+					targetInput.setSelectionRange(valueLength, valueLength);
 				}
+
+				*/
 			}
 			return;
 		}
